@@ -1,12 +1,13 @@
 # carlosjohnson.github.io
 
-Sitio web bilingüe (alemán / español) del violinista **Carlos Johnson**, construido con Hugo, editable por el propio cliente a través de un CMS git-based y desplegado gratis en GitHub Pages.
+Sitio web trilingüe (alemán / español / inglés) del violinista **Carlos Johnson**, construido con Hugo, editable por el propio cliente a través de un CMS git-based y desplegado gratis en GitHub Pages.
 
 Forma parte del proyecto **profi-web**: páginas web para músicos con plantillas reutilizables y un panel de administración para que ellos mismos mantengan el contenido.
 
 - **Producción:** https://profi-web-de.github.io/carlos-johnson/
 - **Panel de administración:** `/admin` (por ejemplo, https://profi-web-de.github.io/carlos-johnson/admin/)
 - **Manual para el cliente:** [user-manual.md](user-manual.md)
+- **Dar de alta a otro artista:** [onboarding.md](onboarding.md)
 
 ---
 
@@ -349,6 +350,8 @@ Consecuencia práctica: **no hace falta optimizar a mano** antes de subir una im
 ---
 
 ## Reutilizar la plantilla en otro sitio
+
+> Para levantar el sitio de un artista nuevo de principio a fin, sigue [onboarding.md](onboarding.md). Esta sección es solo el mapa de qué es configuración y qué no.
 
 Los layouts no contienen datos del cliente. Todo lo específico de un sitio vive en configuración:
 
