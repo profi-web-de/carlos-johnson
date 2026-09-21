@@ -41,3 +41,36 @@
 {{- end }}
 {{- end }}
 </style>
+
+{{/* ——— SEO: og:image dimensions ——— */}}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+
+{{/* ——— SEO: x-default hreflang (apunta a la versión alemana, idioma por defecto) ——— */}}
+{{- $xdefault := . -}}
+{{- range .AllTranslations -}}
+  {{- if eq .Lang "de" -}}{{- $xdefault = . -}}{{- end -}}
+{{- end -}}
+<link rel="alternate" hreflang="x-default" href="{{ $xdefault.Permalink }}">
+
+{{/* ——— SEO: Person schema (solo en la portada) ——— */}}
+{{- if .IsHome }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ site.Title }},
+  "url": {{ site.Home.Permalink }},
+  "description": {{ site.Params.description | default "" }},
+  "image": {{ (absURL "og-default.jpg") }}
+  {{- with site.Params.seo }},
+  "jobTitle": {{ .job_title | default "" }},
+  "knowsAbout": {{ .genre | default "Klassische Musik" }}
+  {{- with .same_as }},
+  "sameAs": [{{ range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e }}{{ end }}]
+  {{- end }}
+  {{- end }}
+}
+</script>
+{{- end }}

@@ -55,6 +55,7 @@ buildFuture = true
   ShowReadingTime = false
   # Imagen por defecto al compartir el sitio (WhatsApp, Facebook, LinkedIn...)
   images = ['og-default.jpg']
+  author = 'Carlos Johnson'
   [params.assets]
     favicon = 'favicon.svg'
     theme_color = '#8a2b34'
@@ -67,6 +68,11 @@ buildFuture = true
   [params.developer]
     name = 'Pablo Johnson'
     url = 'https://github.com/pablo-johnson'
+  [params.seo]
+    # Completar con los perfiles en redes sociales del artista:
+    # same_as = ["https://www.instagram.com/...", "https://www.youtube.com/@..."]
+    job_title = 'Violinista Clásico y Director de Orquesta'
+    genre     = 'Klassische Musik'
 
 # --- MENUS ---
 [languages.de.menu]

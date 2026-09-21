@@ -1,4 +1,36 @@
 {{- define "main" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicEvent",
+  "name": {{ .Title }},
+  "startDate": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "url": {{ .Permalink | safeHTML }},
+  "description": {{ .Description | default .Summary }},
+  "location": {
+    "@type": "Place",
+    "name": {{ .Params.venue | default .Params.city | default "" }},
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": {{ .Params.city | default "" }}
+    }
+  },
+  "performer": {
+    "@type": "Person",
+    "name": {{ site.Title }},
+    "url": {{ site.Home.Permalink }}
+  }
+  {{- with .Params.ticket_link }},
+  "offers": {
+    "@type": "Offer",
+    "url": {{ . | safeURL }},
+    "availability": "https://schema.org/InStock"
+  }
+  {{- end }}
+}
+</script>
 {{- if partial "section-visible.html" .CurrentSection }}
 <article class="post-single">
   <header class="post-header">
