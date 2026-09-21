@@ -15,7 +15,7 @@ buildFuture = true
   [cascade.build]
     render = 'never'
     list = 'never'
-  [cascade._target]
+  [cascade.target]
     path = '{/home,/home/**}'
 
 [services]
