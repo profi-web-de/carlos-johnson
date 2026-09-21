@@ -218,3 +218,7 @@ buildFuture = true
     name = "Conductor"
     url = "conducting/"
     weight = 3
+
+[module]
+  [[module.imports]]
+    path = "github.com/profi-web-de/profi-web"
